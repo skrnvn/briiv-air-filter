@@ -15,13 +15,41 @@ body {
 }
 
 .container--flex-features {
-    display: flex;
     align-items: flex-end;
 }
 
+.container--flex-env {
+    align-items: flex-start;
+}
+
 .container--bg {
+    background-color: #E5F4E5;
+}
+
+.container--linear-top::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-image: linear-gradient(0deg, rgba(255, 255, 255, .2) 0%, rgba(124, 199, 124, .2) 100%);
-    z-index: 10;
+    margin-top: -140px;
+    z-index: -1;
+}
+
+.container--linear-bottom::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, .2) 0%, rgba(124, 199, 124, .2) 100%);
+    margin-bottom: -100px;
+    z-index: -3;
 }
 
 .container--expand {
@@ -30,8 +58,18 @@ body {
     position: relative;
 }
 
+.container--footer {
+    margin-bottom: 0;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .position-relative {
     position: relative;
+}
+
+.margin-right {
+    margin-right: 8.5%;
 }
 
 header {
@@ -47,7 +85,7 @@ header::after {
     left: 0;
     right: 0;
     background-image: linear-gradient(0deg, rgba(255, 255, 255, .2) 0%, rgba(124, 199, 124, .2) 100%);
-    padding-bottom: 440px;
+    margin-bottom: -380px;
     z-index: -1;
 }
 
@@ -112,6 +150,11 @@ nav li {
     margin: 0 10%;
 }
 
+.section__img--expand {
+    width: 100%;
+    margin-top: 80px;
+}
+
 .section__img--header {
     z-index: -2;
 }
@@ -140,7 +183,8 @@ nav li {
     margin-bottom: 40px;
 }
 
-.section__title--header {
+.section__title--header,
+.section__title--footer {
     font-size: 40px;
     line-height: 50px;
     /* or 125% */
@@ -157,7 +201,8 @@ nav li {
 }
 
 .section__body,
-.features p {
+.features p,
+.features--env p {
     color: #4F4F4F;
     font-size: 18px;
     line-height: 30px;
@@ -177,19 +222,28 @@ nav li {
     margin-bottom: 60px;
 }
 
-.slider {
+.section__body--expand {
+    width: 57%;
+    margin-top: 20px;
+}
+
+.slider--small {
     width: 815px;
     position: absolute;
     bottom: 0;
     right: 0;
 }
 
-.slider div {
+.slider--small div {
     max-height: 330px;
     margin-right: 30px;
 }
 
-.slider img {
+.slider--large div {
+    margin-right: 30px;
+}
+
+.slider--small img {
     width: 100%;
 }
 
@@ -212,7 +266,8 @@ nav li {
     bottom: 0;
 }
 
-.features h3 {
+.features h3,
+.features--env h3 {
     font-weight: 300;
     font-size: 24px;
     line-height: 35px;
@@ -229,12 +284,42 @@ nav li {
     ;
 }
 
-.features p {
+.features p,
+.features--env p {
     margin-top: -10px;
 }
 
 .filters {
     margin-top: 100px;
+    overflow: hidden;
+}
+
+.filters::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: -250px;
+    width: 1562px;
+    height: 225px;
+    background-color: #FFFFFF;
+    opacity: .5;
+    z-index: -2;
+    border-radius: 115px;
+}
+
+.filters::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 35px;
+    right: -250px;
+    width: 1562px;
+    height: 225px;
+    background-color: #FFFFFF;
+    opacity: .5;
+    z-index: -2;
+    border-radius: 115px;
 }
 
 .filters ul {
@@ -252,6 +337,17 @@ nav li {
     line-height: 35px;
     /* identical to box height, or 146% */
     margin-bottom: 20px;
+    position: relative;
+}
+
+.filters__title::before {
+    content: "";
+    background-image: url(/img/check_icon.png);
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: -35px;
+    top: 4px;
 }
 
 .filters__desc {
@@ -260,4 +356,45 @@ nav li {
     /* or 167% */
     /* Gray 2 */
     color: #4F4F4F;
+}
+
+.filters__img {
+    z-index: -1;
+}
+
+.footer-main {
+    padding: 80px 0 100px;
+    overflow: hidden;
+}
+
+.footer-main::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 483px;
+    height: 525px;
+    background-image: url(/img/logo_large.png);
+    background-repeat: no-repeat;
+}
+
+.footer-bottom {
+    max-width: 1290px;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 65px 0;
+}
+
+.social-media li {
+    display: inline-block;
+    margin: 10px;
+}
+
+.social-media a {
+    width: 25px;
+    height: 25px;
+}
+
+footer nav li {
+    margin-left: 0;
+    margin-right: 30px;
 }
